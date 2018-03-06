@@ -1,17 +1,71 @@
 --01. Selecione da tabela funcionários todas as suas informações.
 
+SELECT * FROM funcionario
+
+
+funcionario_id 	primeiro_nome 	ultimo_nome 	endereco_id 	foto 	email 	loja_id 	ativo 	usuario 	senha 	ultima_atualizacao 	
+1	Mike	Hillyer	3	NULL	Mike.Hillyer@sakilastaff.com	1	1	Mike	8cb2237d0679ca88db6464eac60da96345513964	2006-02-15 04:57:16	
+2	Jon	Stephens	4	NULL	Jon.Stephens@sakilastaff.com	2	1	Jon	8cb2237d0679ca88db6464eac60da96345513964	2006-02-15 04:57:16	
+
+
  -----------------------------------------------------------------------------------
 --02. Selecione da tabela cliente o primeiro nome dos clientes que moram no endereço com ID =5.
+
+SELECT primeiro_nome FROM cliente WHERE endereco_id = 5
+
+primeiro_nome
+MARY	
 
  -----------------------------------------------------------------------------------
 --03. Selecione os idiomas cadastrados.
 
+SELECT * FROM `idioma`
+
+idioma_id 	nome 	ultima_atualizacao 	
+1	English	2006-02-15 05:02:19	
+2	Italian	2006-02-15 05:02:19	
+3	Japanese	2006-02-15 05:02:19	
+4	Mandarin	2006-02-15 05:02:19	
+5	French	2006-02-15 05:02:19	
+6	German	2006-02-15 05:02:19	
+
  -----------------------------------------------------------------------------------
 --04. Selecione os pagamentos com valor = 4,99 e id de pagamento menor que 20.
+
+SELECT * FROM `pagamento` WHERE valor = '4.99' AND pagamento_id < '20'
+
+pagamento_id 	cliente_id 	funcionario_id 	aluguel_id 	valor 	data_de_pagamento 	ultima_atualizacao 	
+6	1	1	1725	4.99	2005-06-16 15:18:57	2006-02-15 22:12:30	
+7	1	1	2308	4.99	2005-06-18 08:41:48	2006-02-15 22:12:30	
+12	1	1	5244	4.99	2005-07-09 13:24:07	2006-02-15 22:12:30	
+13	1	1	5326	4.99	2005-07-09 16:38:01	2006-02-15 22:12:30	
+16	1	1	7841	4.99	2005-07-28 09:04:45	2006-02-15 22:12:30	
+17	1	2	8033	4.99	2005-07-28 16:18:23	2006-02-15 22:12:30	
+
 
  -----------------------------------------------------------------------------------
 --05. Selecione título e descrição da tabela filme onde o ano de lançamento seja igual a 2006, duração da locação
 --seja de 6 dias e o custo da substituição seja 20,99.
+
+SELECT titulo,descricao FROM `filme` WHERE ano_de_lancamento = 2006 AND duracao_da_locacao = 6 AND custo_de_substituicao = 20.99
+
+titulo 	descricao 	
+ACADEMY DINOSAUR	A Epic Drama of a Feminist And a Mad Scientist who...	
+AMADEUS HOLY	A Emotional Display of a Pioneer And a Technical W...	
+DAZED PUNK	A Action-Packed Story of a Pioneer And a Technical...	
+DEEP CRUSADE	A Amazing Tale of a Crocodile And a Squirrel who m...	
+DOZEN LION	A Taut Drama of a Cat And a Girl who must Defeat a...	
+DROP WATERFRONT	A Fanciful Documentary of a Husband And a Explorer...	
+GLADIATOR WESTWARD	A Astounding Reflection of a Squirrel And a Sumo W...	
+GOLDMINE TYCOON	A Brilliant Epistle of a Composer And a Frisbee wh...	
+HOLY TADPOLE	A Action-Packed Display of a Feminist And a Pionee...	
+IMPACT ALADDIN	A Epic Character Study of a Frisbee And a Moose wh...	
+INTOLERABLE INTENTIONS	A Awe-Inspiring Story of a Monkey And a Pastry Che...	
+MAUDE MOD	A Beautiful Documentary of a Forensic Psychologist...	
+MOD SECRETARY	A Boring Documentary of a Mad Cow And a Cat who mu...	
+MONSOON CAUSE	A Astounding Tale of a Crocodile And a Car who mus...	
+PRIDE ALAMO	A Thoughtful Drama of a A Shark And a Forensic Psy...	
+SHAWSHANK BUBBLE	A Lacklusture Story of a Moose And a Monkey who mu...	
 
  -----------------------------------------------------------------------------------
 --06. Selecione todas as categorias de filmes cadastradas.

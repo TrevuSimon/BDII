@@ -1,0 +1,149 @@
+--01. Selecione da tabela funcionários todas as suas informações.
+
+ -----------------------------------------------------------------------------------
+--02. Selecione da tabela cliente o primeiro nome dos clientes que moram no endereço com ID =5.
+
+ -----------------------------------------------------------------------------------
+--03. Selecione os idiomas cadastrados.
+
+ -----------------------------------------------------------------------------------
+--04. Selecione os pagamentos com valor = 4,99 e id de pagamento menor que 20.
+
+ -----------------------------------------------------------------------------------
+--05. Selecione título e descrição da tabela filme onde o ano de lançamento seja igual a 2006, duração da locação
+--seja de 6 dias e o custo da substituição seja 20,99.
+
+ -----------------------------------------------------------------------------------
+--06. Selecione todas as categorias de filmes cadastradas.
+
+ -----------------------------------------------------------------------------------
+--07. Selecione as informações da categoria com o nome classics.
+
+ -----------------------------------------------------------------------------------
+--08. Selecione o nome das categorias que comecem com a letra C.
+
+ -----------------------------------------------------------------------------------
+--09. Selecione o nome das categorias que comecem com a letra D.
+
+ -----------------------------------------------------------------------------------
+--10. Selecione o nome das categorias que comecem com a letra S.
+
+ -----------------------------------------------------------------------------------
+--11. Selecione o nome das categorias que terminem com a letra a.
+
+ -----------------------------------------------------------------------------------
+--12. Selecione o nome das categorias que terminem com a letra s.
+
+ -----------------------------------------------------------------------------------
+--13. Selecione o nome das categorias que a segunda letra é a.
+
+ -----------------------------------------------------------------------------------
+--14. Selecione o nome das categorias que a terceira letra é a.
+
+ -----------------------------------------------------------------------------------
+--15. Selecione as informações do endereço que começa com 22.
+
+ -----------------------------------------------------------------------------------
+--16. Selecione o ID e o nome dos idiomas.
+
+ -----------------------------------------------------------------------------------
+--17. Selecione o nome completo dos 10 primeiros clientes da loja.
+
+ -----------------------------------------------------------------------------------
+--18. Selecione o título dos filmes cujo custo de substituição esteja entre 5,00 e 10,00.
+
+ -----------------------------------------------------------------------------------
+--19. Selecione o título dos filmes que tenham no nome a palavra North em qualquer posição.
+
+ -----------------------------------------------------------------------------------
+--20. Selecione o título dos filmes que tenham no nome a palavra North ou Drop em qualquer posição.
+
+ -----------------------------------------------------------------------------------
+--21. Selecione quantos registros temos na tabela inventário.
+
+ -----------------------------------------------------------------------------------
+--22. Selecione quantos filmes temos com a duração de 46,47 e 48.
+
+ -----------------------------------------------------------------------------------
+--23. Selecione todos os clientes com limite de 12 registros.
+
+ -----------------------------------------------------------------------------------
+--24. Selecione todas as categorias diferentes de Games.
+
+ -----------------------------------------------------------------------------------
+--25. Selecione o valor total pago em alugueis registrados no banco.
+
+ -----------------------------------------------------------------------------------
+--26. Calcule a média de valores pagos referentes aos alugueis no banco.
+
+ -----------------------------------------------------------------------------------
+--27. Arredondar a média de valores pagos com 2 casas decimais.
+
+ -----------------------------------------------------------------------------------
+--28. Inserir uma nova categoria de Filmes e listar depois de inseridos para mostrar a nova categoria.
+
+ -----------------------------------------------------------------------------------
+--29. Alterar o bairro do endereço de código 5.
+
+ -----------------------------------------------------------------------------------
+--30. Alterar o endereço de código 20.
+
+ -----------------------------------------------------------------------------------
+--31. Alterar o telefone do endereço 65.
+
+ -----------------------------------------------------------------------------------
+--32. Inserir um novo funcionário, ativo e para a loja 2.
+
+ -----------------------------------------------------------------------------------
+--33. Mostrar os países que iniciam com A ordenando e traz para frente.
+
+ -----------------------------------------------------------------------------------
+--34. Mostrar os países com E.
+
+ -----------------------------------------------------------------------------------
+--35. Selecionar a descrição do filme de nome BLANKET BEVERLY.
+
+ -----------------------------------------------------------------------------------
+--36. Selecionar os atores que comecem com a letra J e tenham id menor que 20.
+
+ -----------------------------------------------------------------------------------
+--37. Atualize o nome para ASTROGILDO do ator que contenha no nome ZERO.
+
+ -----------------------------------------------------------------------------------
+--38. Apagar o Ator de id 25.
+
+ -----------------------------------------------------------------------------------
+--39. Apagar o cliente de id 524.
+
+ -----------------------------------------------------------------------------------
+--40. Alterar a cidade Lubumbashi por Lumbumbam
+
+ -----------------------------------------------------------------------------------
+--41. Alterar o cliente do aluguel de ID 3488 para o cliente 1.
+
+ -----------------------------------------------------------------------------------
+--42. Selecionar o aluguel de id 3488.
+
+ -----------------------------------------------------------------------------------
+--43. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--44. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--45. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--46. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--47. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--48. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--49. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+
+ -----------------------------------------------------------------------------------
+--50. Selecionar os dados da tabela filme_texto.

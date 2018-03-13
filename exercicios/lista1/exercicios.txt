@@ -332,47 +332,127 @@ sum(valor)
  -----------------------------------------------------------------------------------
 --26. Calcule a média de valores pagos referentes aos alugueis no banco.
 
+SELECT AVG(valor) FROM `pagamento`
+
+4.200667	
+
  -----------------------------------------------------------------------------------
 --27. Arredondar a média de valores pagos com 2 casas decimais.
 
+SELECT ROUND(AVG(valor),2) FROM `pagamento`
+
+ROUND(AVG(valor),2) 	
+4.20	
+
  -----------------------------------------------------------------------------------
 --28. Inserir uma nova categoria de Filmes e listar depois de inseridos para mostrar a nova categoria.
+INSERT into categoria (nome)
+VALUES (Dark);
+
+SELECT * FROM `categoria`
+
+categoria_id 	nome 	ultima_atualizacao 	
+1	Action	2006-02-15 04:46:27	
+2	Animation	2006-02-15 04:46:27	
+3	Children	2006-02-15 04:46:27	
+4	Classics	2006-02-15 04:46:27	
+5	Comedy	2006-02-15 04:46:27	
+6	Documentary	2006-02-15 04:46:27	
+7	Drama	2006-02-15 04:46:27	
+8	Family	2006-02-15 04:46:27	
+9	Foreign	2006-02-15 04:46:27	
+10	Games	2006-02-15 04:46:27	
+11	Horror	2006-02-15 04:46:27	
+12	Music	2006-02-15 04:46:27	
+13	New	2006-02-15 04:46:27	
+14	Sci-Fi	2006-02-15 04:46:27	
+15	Sports	2006-02-15 04:46:27	
+16	Travel	2006-02-15 04:46:27	
+17	Dark	2018-03-13 19:46:48	
+
 
  -----------------------------------------------------------------------------------
 --29. Alterar o bairro do endereço de código 5.
+UPDATE endereco SET bairro="Bobos" WHERE endereco_id=5
 
  -----------------------------------------------------------------------------------
 --30. Alterar o endereço de código 20.
+UPDATE endereco SET endereco="Rua dos bobos numero 0" WHERE endereco_id=20
 
  -----------------------------------------------------------------------------------
 --31. Alterar o telefone do endereço 65.
+UPDATE endereco SET telefone="5541999959995" WHERE endereco_id=65
 
  -----------------------------------------------------------------------------------
 --32. Inserir um novo funcionário, ativo e para a loja 2.
-
+INSERT INTO funcionario (primeiro_nome, ultimo_nome, endereco_id, email, loja_id, ativo, usuario, senha)
+VALUES("Jao","Da Silva Ironmainden", 20,"jaoironmaiden@mail.com",2,1,"ironjao","jaomaiden")
+ 
  -----------------------------------------------------------------------------------
 --33. Mostrar os países que iniciam com A ordenando e traz para frente.
+
+SELECT pais FROM `pais` WHERE pais LIKE "A%" ORDER by pais DESC
+
+pais   1 	
+Azerbaijan	
+Austria	
+Australia	
+Armenia	
+Argentina	
+Anguilla	
+Angola	
+American Samoa	
+Algeria	
+Afghanistan	
 
  -----------------------------------------------------------------------------------
 --34. Mostrar os países com E.
 
+SELECT pais FROM `pais` WHERE pais LIKE "E%"
+
+pais 	
+Ecuador	
+Egypt	
+Estonia	
+Ethiopia	
+
  -----------------------------------------------------------------------------------
 --35. Selecionar a descrição do filme de nome BLANKET BEVERLY.
+
+SELECT descricao FROM `filme` WHERE titulo = "BLANKET BEVERLY"
+
+A Emotional Documentary of a Student And a Girl wh...	
 
  -----------------------------------------------------------------------------------
 --36. Selecionar os atores que comecem com a letra J e tenham id menor que 20.
 
- -----------------------------------------------------------------------------------
---37. Atualize o nome para ASTROGILDO do ator que contenha no nome ZERO.
+SELECT * FROM `ator` WHERE primeiro_nome LIKE "J%" AND ator_id < 20
+
+ator_id 	primeiro_nome 	ultimo_nome 	ultima_atualizacao 	
+4	JENNIFER	DAVIS	2006-02-15 04:34:33	
+5	JOHNNY	LOLLOBRIGIDA	2006-02-15 04:34:33	
+9	JOE	SWANK	2006-02-15 04:34:33	
 
  -----------------------------------------------------------------------------------
+--37. Atualize o nome para ASTROGILDO do ator que contenha no nome ZERO.
+UPDATE ator SET primeiro_nome="ASTROGILDO" WHERE primeiro_nome="ZERO"
+ -----------------------------------------------------------------------------------
 --38. Apagar o Ator de id 25.
+DELETE FROM filme_ator WHERE ator_id = 25
+
+DELETE from ator WHERE ator_id = 25
 
  -----------------------------------------------------------------------------------
 --39. Apagar o cliente de id 524.
+DELETE FROM aluguel WHERE cliente_id = 524
+
+DELETE FROM pagamento WHERE cliente_id = 524
+
+DELETE FROM cliente WHERE cliente_id = 524
 
  -----------------------------------------------------------------------------------
 --40. Alterar a cidade Lubumbashi por Lumbumbam
+UPDATE cidade SET cidade = "Lumbumbam" WHERE cidade = "Lubumbashi"
 
  -----------------------------------------------------------------------------------
 --41. Alterar o cliente do aluguel de ID 3488 para o cliente 1.

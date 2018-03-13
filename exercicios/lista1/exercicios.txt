@@ -70,62 +70,264 @@ SHAWSHANK BUBBLE	A Lacklusture Story of a Moose And a Monkey who mu...
  -----------------------------------------------------------------------------------
 --06. Selecione todas as categorias de filmes cadastradas.
 
+select nome from categoria
+
+nome	
+Action	
+Animation	
+Children	
+Classics	
+Comedy	
+Documentary	
+Drama	
+Family	
+Foreign	
+Games	
+Horror	
+Music	
+New	
+Sci-Fi	
+Sports	
+Travel	
+
  -----------------------------------------------------------------------------------
 --07. Selecione as informações da categoria com o nome classics.
+
+SELECT nome FROM `categoria` WHERE nome = "classics"
+
+nome
+Classics	
 
  -----------------------------------------------------------------------------------
 --08. Selecione o nome das categorias que comecem com a letra C.
 
+SELECT nome FROM `categoria` WHERE nome LIKE "C%"
+
+nome	
+Children	
+Classics	
+Comedy	
+
  -----------------------------------------------------------------------------------
 --09. Selecione o nome das categorias que comecem com a letra D.
+
+SELECT nome FROM `categoria` WHERE nome LIKE "D%"
+
+nome	
+Documentary	
+Drama	
 
  -----------------------------------------------------------------------------------
 --10. Selecione o nome das categorias que comecem com a letra S.
 
+SELECT nome FROM `categoria` WHERE nome LIKE "S%"
+
+nome	
+Sci-Fi	
+Sports	
+
  -----------------------------------------------------------------------------------
 --11. Selecione o nome das categorias que terminem com a letra a.
+
+SELECT nome FROM `categoria` WHERE nome LIKE "%a"
+
+nome
+Drama	
 
  -----------------------------------------------------------------------------------
 --12. Selecione o nome das categorias que terminem com a letra s.
 
+SELECT nome FROM `categoria` WHERE nome LIKE "%s"
+
+nome	
+Classics	
+Games	
+Sports	
+
  -----------------------------------------------------------------------------------
 --13. Selecione o nome das categorias que a segunda letra é a.
+
+SELECT nome FROM `categoria` WHERE nome LIKE "_a%"
+
+nome	
+Family	
+Games	
 
  -----------------------------------------------------------------------------------
 --14. Selecione o nome das categorias que a terceira letra é a.
 
+SELECT nome FROM `categoria` WHERE nome LIKE "__a%"
+
+nome	
+Classics	
+Drama	
+Travel	
+
  -----------------------------------------------------------------------------------
 --15. Selecione as informações do endereço que começa com 22.
+
+SELECT * FROM `endereco` WHERE endereco LIKE "22%"
+
+endereco_id	endereco	endereco2	bairro	cidade_id	cep	telefone	ultima_atualizacao	
+218	226 Brest Manor		California		2299	785881412500	2006-02-15 04:45:30	
+288	226 Halifax Street		Xinxiang		58492	790651020929	2006-02-15 04:45:30	
+382	220 Hidalgo Drive		Kermanshah		45298	342720754566	2006-02-15 04:45:30	
 
  -----------------------------------------------------------------------------------
 --16. Selecione o ID e o nome dos idiomas.
 
+SELECT idioma_id,nome FROM `idioma`
+
+idioma_id	nome	
+1	English	
+2	Italian	
+3	Japanese	
+4	Mandarin	
+5	French	
+6	German	
+
  -----------------------------------------------------------------------------------
 --17. Selecione o nome completo dos 10 primeiros clientes da loja.
+
+SELECT * FROM `cliente` LIMIT 10
+
+cliente_id	loja_id	primeiro_nome	ultimo_nome	email	endereco_id	ativo	data_criacao	ultima_atualizacao	
+1		MARY	SMITH	MARY.SMITH@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+2		PATRICIA	JOHNSON	PATRICIA.JOHNSON@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+3		LINDA	WILLIAMS	LINDA.WILLIAMS@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+4		BARBARA	JONES	BARBARA.JONES@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+5		ELIZABETH	BROWN	ELIZABETH.BROWN@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+6		JENNIFER	DAVIS	JENNIFER.DAVIS@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+7		MARIA	MILLER	MARIA.MILLER@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+8		SUSAN	WILSON	SUSAN.WILSON@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+9		MARGARET	MOORE	MARGARET.MOORE@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+10		DOROTHY	TAYLOR	DOROTHY.TAYLOR@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
 
  -----------------------------------------------------------------------------------
 --18. Selecione o título dos filmes cujo custo de substituição esteja entre 5,00 e 10,00.
 
+SELECT titulo FROM `filme` WHERE custo_de_substituicao >5 AND custo_de_substituicao < 10
+
+titulo	
+ANACONDA CONFESSIONS	
+CIDER DESIRE	
+CONTROL ANTHEM	
+DAISY MENAGERIE	
+DELIVERANCE MULHOLLAND	
+DUDE BLINDNESS	
+EDGE KISSING	
+ENCINO ELF	
+FACTORY DRAGON	
+FELLOWSHIP AUTUMN	
+GANDHI KWAI	
+GUNFIGHTER MUSSOLINI	
+HEARTBREAKERS BRIGHT	
+JASON TRAP	
+KISSING DOLLS	
+LIFE TWISTED	
+MAIDEN HOME	
+MATRIX SNOWMAN	
+METROPOLIS COMA	
+NEWTON LABYRINTH	
+NORTH TEQUILA	
+NOTORIOUS REUNION	
+OPPOSITE NECKLACE	
+PAPI NECKLACE	
+PATHS CONTROL	
+
  -----------------------------------------------------------------------------------
 --19. Selecione o título dos filmes que tenham no nome a palavra North em qualquer posição.
+
+SELECT * FROM `filme` WHERE titulo LIKE "%North%"
+
+filme_id	titulo	descricao	ano_de_lancamento	idioma_id	idioma_original_id	duracao_da_locacao	preco_da_locacao	duracao_do_filme	custo_de_substituicao	classificacao	recursos_especiais	ultima_atualizacao	
+141	CHICAGO NORTH	A Fateful Yarn of a Mad Cow And a Waitress who mus...	2006			6	4.99	185	11.99	PG-13	Deleted Scenes,Behind the Scenes	2006-02-15 05:03:42	
+378	GREATEST NORTH	A Astounding Character Study of a Secret Agent And...	2006			5	2.99	93	24.99	NC-17	Trailers,Commentaries,Behind the Scenes	2006-02-15 05:03:42	
+488	JOON NORTHWEST	A Thrilling Panorama of a Technical Writer And a C...	2006			3	0.99	105	23.99	NC-17	Trailers,Commentaries,Behind the Scenes	2006-02-15 05:03:42	
+627	NORTH TEQUILA	A Beautiful Character Study of a Mad Cow And a Rob...	2006			4	4.99	67	9.99	NC-17	Commentaries,Deleted Scenes,Behind the Scenes	2006-02-15 05:03:42	
+628	NORTHWEST POLISH	A Boring Character Study of a Boy And a A Shark wh...	2006			5	2.99	172	24.99	PG	Trailers	2006-02-15 05:03:42	
+799	SIMON NORTH	A Thrilling Documentary of a Technical Writer And ...	2006			3	0.99	51	26.99	NC-17	Trailers,Commentaries	2006-02-15 05:03:42	
+939	VERTIGO NORTHWEST	A Unbelieveable Display of a Mad Scientist And a M...	2006			4	2.99	90	17.99	R	Commentaries,Behind the Scenes	2006-02-15 05:03:42	
 
  -----------------------------------------------------------------------------------
 --20. Selecione o título dos filmes que tenham no nome a palavra North ou Drop em qualquer posição.
 
+SELECT * FROM `filme` WHERE titulo LIKE "%North%" OR titulo LIKE "%Drop%"
+
+filme_id	titulo	descricao	ano_de_lancamento	idioma_id	idioma_original_id	duracao_da_locacao	preco_da_locacao	duracao_do_filme	custo_de_substituicao	classificacao	recursos_especiais	ultima_atualizacao	
+141	CHICAGO NORTH	A Fateful Yarn of a Mad Cow And a Waitress who mus...	2006			6	4.99	185	11.99	PG-13	Deleted Scenes,Behind the Scenes	2006-02-15 05:03:42	
+256	DROP WATERFRONT	A Fanciful Documentary of a Husband And a Explorer...	2006			6	4.99	178	20.99	R	Trailers,Commentaries	2006-02-15 05:03:42	
+378	GREATEST NORTH	A Astounding Character Study of a Secret Agent And...	2006			5	2.99	93	24.99	NC-17	Trailers,Commentaries,Behind the Scenes	2006-02-15 05:03:42	
+488	JOON NORTHWEST	A Thrilling Panorama of a Technical Writer And a C...	2006			3	0.99	105	23.99	NC-17	Trailers,Commentaries,Behind the Scenes	2006-02-15 05:03:42	
+627	NORTH TEQUILA	A Beautiful Character Study of a Mad Cow And a Rob...	2006			4	4.99	67	9.99	NC-17	Commentaries,Deleted Scenes,Behind the Scenes	2006-02-15 05:03:42	
+628	NORTHWEST POLISH	A Boring Character Study of a Boy And a A Shark wh...	2006			5	2.99	172	24.99	PG	Trailers	2006-02-15 05:03:42	
+699	PRIVATE DROP	A Stunning Story of a Technical Writer And a Hunte...	2006			7	4.99	106	26.99	PG	Trailers	2006-02-15 05:03:42	
+799	SIMON NORTH	A Thrilling Documentary of a Technical Writer And ...	2006			3	0.99	51	26.99	NC-17	Trailers,Commentaries	2006-02-15 05:03:42	
+939	VERTIGO NORTHWEST	A Unbelieveable Display of a Mad Scientist And a M...	2006			4	2.99	90	17.99	R	Commentaries,Behind the Scenes	2006-02-15 05:03:42	
+984	WONDERFUL DROP	A Boring Panorama of a Woman And a Madman who must...	2006			3	2.99	126	20.99	NC-17	Commentaries	2006-02-15 05:03:42	
+
  -----------------------------------------------------------------------------------
 --21. Selecione quantos registros temos na tabela inventário.
+
+SELECT COUNT(*) FROM `inventario`
+
+4581	
 
  -----------------------------------------------------------------------------------
 --22. Selecione quantos filmes temos com a duração de 46,47 e 48.
 
+SELECT COUNT(*) FROM `filme` WHERE duracao_do_filme = 46 OR duracao_do_filme = 47 OR  duracao_do_filme = 48
+
+23	
+
  -----------------------------------------------------------------------------------
 --23. Selecione todos os clientes com limite de 12 registros.
+
+SELECT * FROM `cliente` LIMIT 12
+
+cliente_id	loja_id	primeiro_nome	ultimo_nome	email	endereco_id	ativo	data_criacao	ultima_atualizacao	
+1		MARY	SMITH	MARY.SMITH@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+2		PATRICIA	JOHNSON	PATRICIA.JOHNSON@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+3		LINDA	WILLIAMS	LINDA.WILLIAMS@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+4		BARBARA	JONES	BARBARA.JONES@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+5		ELIZABETH	BROWN	ELIZABETH.BROWN@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+6		JENNIFER	DAVIS	JENNIFER.DAVIS@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+7		MARIA	MILLER	MARIA.MILLER@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+8		SUSAN	WILSON	SUSAN.WILSON@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+9		MARGARET	MOORE	MARGARET.MOORE@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+10		DOROTHY	TAYLOR	DOROTHY.TAYLOR@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+11		LISA	ANDERSON	LISA.ANDERSON@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
+12		NANCY	THOMAS	NANCY.THOMAS@sakilacustomer.org		1	2006-02-14 22:04:36	2006-02-15 04:57:20	
 
  -----------------------------------------------------------------------------------
 --24. Selecione todas as categorias diferentes de Games.
 
+SELECT * FROM `categoria` WHERE nome != "Games"
+
+categoria_id	nome	ultima_atualizacao	
+1	Action	2006-02-15 04:46:27	
+2	Animation	2006-02-15 04:46:27	
+3	Children	2006-02-15 04:46:27	
+4	Classics	2006-02-15 04:46:27	
+5	Comedy	2006-02-15 04:46:27	
+6	Documentary	2006-02-15 04:46:27	
+7	Drama	2006-02-15 04:46:27	
+8	Family	2006-02-15 04:46:27	
+9	Foreign	2006-02-15 04:46:27	
+11	Horror	2006-02-15 04:46:27	
+12	Music	2006-02-15 04:46:27	
+13	New	2006-02-15 04:46:27	
+14	Sci-Fi	2006-02-15 04:46:27	
+15	Sports	2006-02-15 04:46:27	
+16	Travel	2006-02-15 04:46:27	
+
  -----------------------------------------------------------------------------------
 --25. Selecione o valor total pago em alugueis registrados no banco.
+
+SELECT sum(valor) FROM `pagamento`
+
+sum(valor)	
+67416.51	
 
  -----------------------------------------------------------------------------------
 --26. Calcule a média de valores pagos referentes aos alugueis no banco.

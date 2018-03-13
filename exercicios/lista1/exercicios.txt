@@ -346,8 +346,7 @@ ROUND(AVG(valor),2)
 
  -----------------------------------------------------------------------------------
 --28. Inserir uma nova categoria de Filmes e listar depois de inseridos para mostrar a nova categoria.
-INSERT into categoria (nome)
-VALUES (Dark);
+INSERT into categoria (nome) VALUES ("Dark");
 
 SELECT * FROM `categoria`
 

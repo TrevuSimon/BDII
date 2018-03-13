@@ -456,30 +456,50 @@ UPDATE cidade SET cidade = "Lumbumbam" WHERE cidade = "Lubumbashi"
 
  -----------------------------------------------------------------------------------
 --41. Alterar o cliente do aluguel de ID 3488 para o cliente 1.
+UPDATE aluguel SET cliente_id = 1 WHERE aluguel_id = 3488
 
  -----------------------------------------------------------------------------------
 --42. Selecionar o aluguel de id 3488.
+SELECT * FROM `aluguel`WHERE aluguel_id = 3488
+
+3488	2005-07-05 23:32:49	898	1	2005-07-15 02:01:49	2	2018-03-13 20:26:23	
 
  -----------------------------------------------------------------------------------
 --43. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (1,"Texto","Descricao Texto")
 
  -----------------------------------------------------------------------------------
 --44. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
-
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (2,"OI","aqui era algo do filme")
  -----------------------------------------------------------------------------------
 --45. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
-
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (3,"Tudo","agora ja era")
  -----------------------------------------------------------------------------------
 --46. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
-
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (4,"bem","se for n vai ser mais")
  -----------------------------------------------------------------------------------
 --47. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
-
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (5,"com voce","brincadeira")
  -----------------------------------------------------------------------------------
 --48. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
-
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (6,"",NULL)
  -----------------------------------------------------------------------------------
 --49. Inserir uma entrada na tabela filme_texto, lembrando da relação de chave estrangeira com o Id do filme.
-
+INSERT INTO filme_texto (filme_id, titulo, descricao) VALUES (7,"",NULL)
  -----------------------------------------------------------------------------------
 --50. Selecionar os dados da tabela filme_texto.
+127.0.0.1/bancobasegui/filme_texto/		http://localhost/phpmyadmin/sql.php?server=1&db=bancobasegui&table=filme_texto&pos=0&token=c5ea4850d77f0699606f7a777e758b58
+ A mostrar registos de 0 -  6 (7 total, A consulta demorou 0,0000 segundos.)
+
+SELECT * FROM `filme_texto`
+
+
+filme_id 	titulo 	descricao 	
+1	Texto	Descricao Texto	
+6		NULL	
+7		NULL	
+2	OI	aqui era algo do filme	
+3	Tudo	agora ja era	
+4	bem	se for n vai ser mais	
+5	com voce	brincadeira	
+

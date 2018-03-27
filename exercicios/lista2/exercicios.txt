@@ -1,0 +1,154 @@
+01. Execute o comando que segue:
+INSERT INTO endereco (id_endereco, rua, numero, cep, bairro, cidade) VALUES (NULL, "Rua das Laranjeiras", "75", "81256239", " Jardim das Palmas", "Almirante Tamandaré");
+INSERT INTO endereco (id_endereco, rua, numero, cep, bairro, cidade) VALUES (NULL, "Rua das Amoras", "2", "81785439", "Bigorr ilho", "Piracicaba");
+INSERT INTO endereco (id_endereco, rua, numero, cep, bairro, cidade) VALUES (NULL, "Rua das Peras", "10", "81211139", "Centro", "Toledo");
+INSERT INTO endereco (id_endereco, rua, numero, cep, bairro, cidade) VALUES (NULL, "Rua dos Feijões", "09", "88886239", "Taru mã", "Pinhais");
+
+02. Observe o esquema que receberam e responda as questões:
+a. Quais tabelas têm ligações na base?
+>> TODAS!
+
+b. Identifique quais estas ligações.
+>> Tabelas seriam faculdade, aluno, sala, professor, endereco, bloco
+as uniões acontecem da seguinte forma (chave estrangeira >> primaria)
+
+// Aluno
+aluno.id_faculdade >> faculdade.id_faculdade;
+aluno.id_sala >> sala.id_sala;
+aluno.id_endereco >> endereco.id_endereco;
+
+// Sala
+sala.id_bloco >> bloco.id_bloco;
+sala.id_professor >> professor.id_professor;
+
+
+03. Utilizando o comando INNER JOIN faça:
+a. Qual faculdade os alunos pertencem.
+SELECT aluno.nome, faculdade.nome_fantasia FROM aluno INNER JOIN faculdade ON faculdade.id_faculdade = aluno.id_faculdade;
+
+Antonio	FAPI
+Marcio	FAPI
+Tadeu	  FAPI
+Pedro  	FAPI
+
+b. Quais salas os alunos pertence.
+SELECT aluno.nome, sala.numero FROM aluno INNER JOIN sala ON sala.id_sala = aluno.id_sala;
+
+Antonio	10
+Pedro	  10
+Marcio	20
+Tadeu	  30
+
+c. Quais os professores das salas.
+SELECT professor.nome, sala.numero FROM professor INNER JOIN sala ON sala.id_professor = professor.id_professor;
+
+Vanely de Souza Afanaci	10
+Rodrigo Muller	        20
+Wagner da Silva Machado	30
+Rodrigo Muller	        11
+
+d. Quais os blocos das salas.
+SELECT sala.numero , bloco.nome FROM sala INNER JOIN bloco ON sala.id_bloco = bloco.id_bloco;
+
+10	Aluir Schmidt
+20	Justina Bel Schmidt
+30	Ginásio de Esportes
+11	Aluir Schmidt
+
+e. Quais os endereços dos alunos.
+SELECT aluno.nome , endereco.rua, endereco.numero, endereco.cep, endereco.bairro, endereco.cidade FROM aluno INNER JOIN endereco ON aluno.id_endereco = endereco.id_endereco;
+
+Antonio	Rua das Flores	14	82852370	Jardim das Palmas	Florianópolis
+Marcio	Rua das Palmeiras	12	82852369	Jardim das Flores	Palmeiras
+Tadeu	Rua das Palmeiras	16	82125369	Jardim das Américas	Curitiba
+Pedro	Rua das Palmeiras	18	82851239	Jardim das Hortências	Florindópolis
+
+04. Utilizar o comando LEFT JOIN faça:
+a. Quais os professores das salas.
+SELECT professor.nome, sala.numero FROM professor LEFT JOIN sala ON sala.id_professor = professor.id_professor;
+
+Vanely de Souza Afanaci	10
+Rodrigo Muller	        20
+Wagner da Silva Machado	30
+Rodrigo Muller	        11
+Marcelo Afanaci Junior	NULL
+Agenor Ramos	          NULL
+Deivid Briski           NULL
+
+b. Quais as salas dos alunos.
+SELECT aluno.nome, sala.numero FROM sala LEFT JOIN aluno ON aluno.id_sala = sala.id_sala;
+
+Antonio	10
+Marcio	20
+Tadeu  	30
+Pedro	  10
+NULL  	11
+
+c. Quais os blocos das salas.
+SELECT sala.numero , bloco.nome FROM bloco LEFT JOIN sala ON sala.id_bloco = bloco.id_bloco;
+
+10   	Aluir Schmidt
+20  	Justina Bel Schmidt
+30  	Ginásio de Esportes
+11	  Aluir Schmidt
+NULL	Cantina do Régis
+NULL	TADS
+NULL	Laboratório Multiuso
+NULL	Antena de WIFI
+NULL	Bloco dos casos de uso
+
+05. Utilizar o comando RIGHT JOIN faça:
+a. Quais os professores das salas.
+SELECT professor.nome, sala.numero FROM professor INNER JOIN sala ON sala.id_professor = professor.id_professor;
+
+Vanely de Souza Afanaci	10
+Rodrigo Muller	        20
+Wagner da Silva Machado	30
+Rodrigo Muller	        11
+Marcelo Afanaci Junior	NULL
+Agenor Ramos	          NULL
+Deivid Briski	          NULL
+
+b. Quais os blocos das salas.
+SELECT sala.numero , bloco.nome FROM sala LEFT JOIN bloco ON sala.id_bloco = bloco.id_bloco;
+
+10	Aluir Schmidt
+20	Justina Bel Schmidt
+30	Ginásio de Esportes
+11	Aluir Schmidt
+
+c. Quais os endereços dos alunos.
+SELECT aluno.nome , endereco.rua, endereco.numero, endereco.cep, endereco.bairro, endereco.cidade FROM aluno RIGHT JOIN endereco ON aluno.id_endereco = endereco.id_endereco;
+
+Antonio	Rua das Flores	  14	82852370	Jardim das Palmas	Florianópolis
+Marcio	Rua das Palmeiras	12	82852369	Jardim das Flores	Palmeiras
+Tadeu	Rua das Palmeiras	  16	82125369	Jardim das Américas	Curitiba
+Pedro	Rua das Palmeiras	  18	82851239	Jardim das Hortências	Florindópolis
+NULL	Rua das Laranjeiras 75	81256239	Jardim das Palmas	Almirante Tamandaré
+NULL	Rua das Amoras	    2	  81785439	Bigorr ilho	Piracicaba
+NULL	Rua das Peras	      10	81211139	Centro	Toledo
+NULL	Rua dos Feijões	    9  	88886239	Tarumã	Pinhais
+
+06. Criar uma situação problema para cada um dos JOINS.
+Qual aluno dos enderecos?(inner, left right)
+
+SELECT aluno.nome , endereco.rua, endereco.numero, endereco.cep, endereco.bairro, endereco.cidade FROM aluno INNER JOIN endereco ON aluno.id_endereco = endereco.id_endereco;
+
+Antonio	Rua das Flores	14	82852370	Jardim das Palmas	Florianópolis
+Marcio	Rua das Palmeiras	12	82852369	Jardim das Flores	Palmeiras
+Tadeu	Rua das Palmeiras	16	82125369	Jardim das Américas	Curitiba
+Pedro	Rua das Palmeiras	18	82851239	Jardim das Hortências	Florindópolis
+
+SELECT aluno.nome , endereco.rua, endereco.numero, endereco.cep, endereco.bairro, endereco.cidade FROM endereco RIGHT JOIN aluno ON aluno.id_endereco = endereco.id_endereco;
+
+Antonio	Rua das Flores	14	82852370	Jardim das Palmas	Florianópolis
+Marcio	Rua das Palmeiras	12	82852369	Jardim das Flores	Palmeiras
+Tadeu	Rua das Palmeiras	16	82125369	Jardim das Américas	Curitiba
+Pedro	Rua das Palmeiras	18	82851239	Jardim das Hortências	Florindópolis
+
+SELECT aluno.nome , endereco.rua, endereco.numero, endereco.cep, endereco.bairro, endereco.cidade FROM aluno LEFT JOIN endereco ON aluno.id_endereco = endereco.id_endereco;
+
+Antonio	Rua das Flores	14	82852370	Jardim das Palmas	Florianópolis
+Marcio	Rua das Palmeiras	12	82852369	Jardim das Flores	Palmeiras
+Tadeu	Rua das Palmeiras	16	82125369	Jardim das Américas	Curitiba
+Pedro	Rua das Palmeiras	18	82851239	Jardim das Hortências	Florindópolis

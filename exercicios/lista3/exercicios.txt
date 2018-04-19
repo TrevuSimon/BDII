@@ -1,0 +1,65 @@
+01. Crie uma view que mostre todos os alunos que iniciam o nome com a letra A.
+CREATE VIEW aalunos AS SELECT nome FROM aluno WHERE nome LIKE "A%";
+-----------------------------------------------------------------------------------
+02. Crie uma view que mostre todos os alunos e sua respectivas salas.
+CREATE VIEW salaalunos AS
+SELECT aluno.nome, sala.numero FROM aluno
+INNER JOIN sala ON aluno.id_sala = sala.id_sala;
+-----------------------------------------------------------------------------------
+03. Crie uma view que mostre todos os alunos suas respectivas salas e seus professores.
+CREATE VIEW alunosalaprofessor AS
+SELECT aluno.nome, professor.nome as professor, sala.numero
+FROM aluno INNER JOIN sala
+ON aluno.id_sala = sala.id_sala
+INNER JOIN professor
+ON professor.id_professor = sala.id_professor;
+
+-----------------------------------------------------------------------------------
+04. Crie uma view que mostre todos os blocos que pertencem a faculdade com nome_fantasia = FAPI.
+
+-----------------------------------------------------------------------------------
+05. Crie uma view que mostre todos os endereços dos alunos.
+
+-----------------------------------------------------------------------------------
+06. Crie uma view que mostre todos os professores da faculdade com nome_fantasia = FAPI.
+
+-----------------------------------------------------------------------------------
+07. Crie uma view que mostre os blocos de cada aluno.
+
+-----------------------------------------------------------------------------------
+08. Crie uma view que mostre todas as salas com seus respectivos blocos e professores.
+
+-----------------------------------------------------------------------------------
+09. Crie uma view que mostre o bloco de cada professor.
+
+-----------------------------------------------------------------------------------
+10. Crie uma view que mostre todas as salas com o ID menor que 20.
+
+-----------------------------------------------------------------------------------
+11. Crie uma view que mostre todos os blocos com ID menor que 2.
+
+-----------------------------------------------------------------------------------
+12. O comando abaixo mostra como podemos CRIAR OU ALTERAR uma view, ele verifica se ela já existe e neste
+caso cria uma nova:
+CREATE OR REPLACE VIEW <nome> AS SELECT <colunas> FROM <tabela>
+Altere a view criada no exercício 10 para os maiores de 2.
+
+-----------------------------------------------------------------------------------
+13. Altere a view do exercício 01 para os nomes que terminem com a letra o.
+
+-----------------------------------------------------------------------------------
+14. Para apagar uma view utilizamos o seguinte comando:
+DROP VIEW <nome>
+Escolha uma das views criadas e apague a view.
+
+-----------------------------------------------------------------------------------
+15. Liste as tabelas para verificar se a view foi apagada.
+
+-----------------------------------------------------------------------------------
+16. Crie uma view diferente das propostas para cada tabela que segue:
+a. aluno.
+b. bloco.
+c. endereço.
+d. faculdade.
+e. professor.
+f. sala.

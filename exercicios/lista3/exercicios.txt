@@ -1,10 +1,12 @@
 01. Crie uma view que mostre todos os alunos que iniciam o nome com a letra A.
 CREATE VIEW aalunos AS SELECT nome FROM aluno WHERE nome LIKE "A%";
+
 -----------------------------------------------------------------------------------
 02. Crie uma view que mostre todos os alunos e sua respectivas salas.
 CREATE VIEW salaalunos AS
 SELECT aluno.nome, sala.numero FROM aluno
 INNER JOIN sala ON aluno.id_sala = sala.id_sala;
+
 -----------------------------------------------------------------------------------
 03. Crie uma view que mostre todos os alunos suas respectivas salas e seus professores.
 CREATE VIEW alunosalaprofessor AS
@@ -16,15 +18,34 @@ ON professor.id_professor = sala.id_professor;
 
 -----------------------------------------------------------------------------------
 04. Crie uma view que mostre todos os blocos que pertencem a faculdade com nome_fantasia = FAPI.
+CREATE VIEW blocofaculdade AS
+SELECT bloco.nome, faculdade.nome_fantasia FROM professor
+INNER JOIN bloco
+ON bloco.id_faculdade = faculdade.id_faculdade;
+// TODO
 
 -----------------------------------------------------------------------------------
 05. Crie uma view que mostre todos os endereços dos alunos.
+CREATE VIEW alunoendereco AS
+SELECT aluno.nome, endereco.bairro, endereco.cep, endereco.cidade FROM aluno
+INNER JOIN endereco ON aluno.id_endereco = endereco.id_endereco;
 
 -----------------------------------------------------------------------------------
 06. Crie uma view que mostre todos os professores da faculdade com nome_fantasia = FAPI.
+CREATE VIEW professorfaculdade AS
+SELECT professor.nome FROM professor
+INNER JOIN faculdade
+ON faculdade.id_faculdade = professor.id_faculdade;
+// TODO
 
 -----------------------------------------------------------------------------------
 07. Crie uma view que mostre os blocos de cada aluno.
+CREATE VIEW alunobloco AS
+SELECT aluno.nome, bloco.nome as bloco
+FROM aluno INNER JOIN sala
+ON aluno.id_sala = sala.id_sala
+INNER JOIN bloco
+ON sala.id_bloco = sala.id_bloco;
 
 -----------------------------------------------------------------------------------
 08. Crie uma view que mostre todas as salas com seus respectivos blocos e professores.

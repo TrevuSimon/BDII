@@ -45,19 +45,37 @@ SELECT aluno.nome, bloco.nome as bloco
 FROM aluno INNER JOIN sala
 ON aluno.id_sala = sala.id_sala
 INNER JOIN bloco
-ON sala.id_bloco = sala.id_bloco;
+ON sala.id_bloco = bloco.id_bloco;
 
 -----------------------------------------------------------------------------------
 08. Crie uma view que mostre todas as salas com seus respectivos blocos e professores.
+CREATE VIEW salablocoprofessor AS
+SELECT sala.numero as sala, professor.nome as professor, bloco.nome as bloco
+FROM professor INNER JOIN sala
+ON professor.id_professor = sala.id_professor
+INNER JOIN bloco
+ON sala.id_bloco = bloco.id_bloco;
 
 -----------------------------------------------------------------------------------
 09. Crie uma view que mostre o bloco de cada professor.
+CREATE VIEW professorbloco AS
+SELECT professor.nome as professor, bloco.nome as bloco
+FROM professor INNER JOIN sala
+ON professor.id_professor = sala.id_professor
+INNER JOIN bloco
+ON sala.id_bloco = bloco.id_bloco;
 
 -----------------------------------------------------------------------------------
 10. Crie uma view que mostre todas as salas com o ID menor que 20.
+CREATE VIEW salasmenorvinte AS
+SELECT sala.numero FROM sala
+WHERE sala.id_sala < 20;
 
 -----------------------------------------------------------------------------------
 11. Crie uma view que mostre todos os blocos com ID menor que 2.
+CREATE VIEW blocomenorvinte AS
+SELECT bloco.nome FROM bloco
+WHERE bloco.id_bloco < 2;
 
 -----------------------------------------------------------------------------------
 12. O comando abaixo mostra como podemos CRIAR OU ALTERAR uma view, ele verifica se ela já existe e neste
@@ -65,22 +83,81 @@ caso cria uma nova:
 CREATE OR REPLACE VIEW <nome> AS SELECT <colunas> FROM <tabela>
 Altere a view criada no exercício 10 para os maiores de 2.
 
+CREATE OR REPLACE VIEW salasmenorvinte AS
+SELECT sala.numero FROM sala
+WHERE sala.id_sala < 2;
+
 -----------------------------------------------------------------------------------
 13. Altere a view do exercício 01 para os nomes que terminem com a letra o.
+CREATE OR REPLACE VIEW aalunos AS SELECT nome FROM aluno WHERE nome LIKE "%o";
 
 -----------------------------------------------------------------------------------
 14. Para apagar uma view utilizamos o seguinte comando:
 DROP VIEW <nome>
 Escolha uma das views criadas e apague a view.
 
+DROP VIEW blocomenorvinte;
 -----------------------------------------------------------------------------------
 15. Liste as tabelas para verificar se a view foi apagada.
+SHOW TABLES
+
+aalunos
+aluno
+alunobloco
+alunoendereco
+alunosalaprofessor
+bloco
+blocomenorvinte
+endereco
+faculdade
+professor
+professorbloco
+sala
+salaalunos
+salablocoprofessor
+salasmenorvinte
+
 
 -----------------------------------------------------------------------------------
 16. Crie uma view diferente das propostas para cada tabela que segue:
 a. aluno.
+CREATE VIEW alunobloco2 AS
+SELECT aluno.nome, bloco.nome as bloco
+FROM aluno INNER JOIN sala
+ON aluno.id_sala = sala.id_sala
+INNER JOIN bloco
+ON sala.id_bloco = bloco.id_bloco
+WHERE WHERE aluno.nome LIKE "%o";
+
 b. bloco.
+CREATE VIEW professorbloco AS
+SELECT professor.nome as professor, bloco.nome as bloco
+FROM professor INNER JOIN sala
+ON professor.id_professor = sala.id_professor
+INNER JOIN bloco
+ON sala.id_bloco = bloco.id_bloco
+WHERE professor.nome LIKE "V%";
+
 c. endereço.
+CREATE VIEW alunoendereco2 AS
+SELECT aluno.nome, endereco.bairro, endereco.cep, endereco.cidade FROM aluno
+INNER JOIN endereco ON aluno.id_endereco = endereco.id_endereco
+WHERE endereco.cidade LIKE "P%";
+
 d. faculdade.
+CREATE VIEW alunofaculdade AS
+SELECT aluno.nome, faculdade.nome_fantasia
+FROM aluno INNER JOIN faculdade
+ON aluno.id_faculdade = faculdade.id_faculdade;
+
 e. professor.
+CREATE VIEW blocofaculdade AS
+SELECT sala.nome, professor.nome as professor FROM professor
+INNER JOIN sala
+ON sala.id_professor = faculdade.id_professor;
+
 f. sala.
+CREATE VIEW blocofaculdade AS
+SELECT sala.nome, bloco.nome as bloco FROM professor
+INNER JOIN sala
+ON sala.id_bloco = faculdade.id_bloco;
